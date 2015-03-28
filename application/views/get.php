@@ -4,7 +4,7 @@
 		<div>
 			<div>
 				<?=date('l dS \o\f F o, h:i:s A ',$topic->created)?>
-				<?=kdate($topic->created)?>
+				<!--<?=kdate($topic->created)?>-->
 			</div>
 			<?=auto_link($topic->description)?>
 		</div>

@@ -31,15 +31,26 @@ class Topic extends CI_Controller {
 		
 		$this->_head();
 
-		echo $this->input->post('title');
-		echo '/';
-		echo $this->input->post('description');
+		$this->load->library('form_validation'); 
 
-		$this->load->view('add');
+		$this->form_validation->set_rules('title', 'Subject', 'required');
+		$this->form_validation->set_rules('description', 'Message', 'required');
 
-		//$topic = $this->topic_model->get($id);
-		//$this->load->helper(array('url', 'html', 'korean'));
-		//$this->load->view('get', array('topic' => $topic));
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('add');
+		}
+		else
+		{
+			$topic_id = $this->topic_model->add($this->input->post('title'), $this->input->post('description'));
+
+			$this->load->helper('url');
+
+			redirect('/topic/get/'.$topic_id);
+
+			echo "Success";
+		}
+
 		$this->load->view('footer'); 
 	}
 
