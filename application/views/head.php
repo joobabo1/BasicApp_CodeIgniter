@@ -35,5 +35,20 @@
 	                    </div>
 	                  </div>
 	                </div>
+
+	                <?php
+	                	if(false){
+	                	//if($this->config->item('is_dev')) {
+
+	                ?>
+
+	                <div class="well span12">
+	                	Developemt is now modifying
+	                </div>
+
+	                <?php
+	                }
+	                ?>
+
 	                <div class="container">
 	                <div class="row-fluid">
